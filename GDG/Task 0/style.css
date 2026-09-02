@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&family=Varela+Round&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  background-image: url("bg-image.png");
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(1px);
+  color: white;
+  line-height: 1.6;
+  height: 1000px;
+  font-family: 'Varela Round', sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: black;
+}
+
+.logo {
+  font-size: 2.5rem;
+  font-family: 'Smooch Sans', sans-serif;
+}
+
+.logo span {
+  color: #183bff;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 5rem;
+  align-items: center;
+  font-family: 'Varela Round', sans-serif;
+}
+
+.nav-links a {
+  color: #f8fafc;
+  text-decoration: none;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -44px;
+  width: 0;
+  height: 4px;
+  border-radius: 10px;
+  background-color: #183bff;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 150%;
+}
+
+.btn-nav {
+  background-color: #f5fcff;
+  color: #0f172a;
+  padding: 0.5rem 2rem;
+  border-radius: 20px;
+  font-weight: bold;
+  border: none;
+  font-family: 'Varela Round', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-nav:hover {
+  background-color: #183bff;
+  color: #f5fcff;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+}
+
+.small {
+    font-size: 1rem;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.main {
+    font-size: 7rem;
+    font-family: 'Smooch Sans', sans-serif;
+    font-weight: 700;
+    margin: 0;
+}
+.main span {
+  color: #183bff;
+}
+
+.divider2 {
+    width: 20%;
+    margin: 0 auto;
+    border: 2px solid #183bff;
+    top: 420px;
+    margin-bottom: 1.5rem;
+}
+
+.text {
+    font-size: 1.25rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.hero-details {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.divider1 {
+    width: 90%;
+    margin: 0 auto;
+    border: 0.5px solid rgba(255, 255, 255, 0.24);
+    position: sticky;
+    top: 100px;
+}
+
+.events-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px;
+}
+
+.events-heading {
+    font-size: 5rem;
+    font-family: 'Smooch Sans', sans-serif;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.cards {
+    display: flex;
+    align-items: center;
+    padding: 100px;
+}
+
+.event-card {
+    background-color: #0f172a;
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 1rem;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background-color: #183bff28;
+    cursor: pointer;
+}
+
+.event-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.event-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.footer-brand {
+  font-family: 'Smooch Sans', sans-serif;
+  font-size: 2rem;
+}
+
+.footer-brand span {
+  color: #183bff;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%;
+    background-color: #0b0f19;
+    color: #f8fafc;
+    margin-top: 2rem;
+}
+
+.social-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6rem;
+}
+
+.social-links a {
+    color: #f8fafc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #183bff;
+}
+
+/* Width of scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Scrollbar track */
+::-webkit-scrollbar-track {
+    background: #0f0f0f;
+}
+
+/* Scrollbar thumb */
+::-webkit-scrollbar-thumb {
+    background: #183bff;
+    border-radius: 10px;
+}
+
+/* Hover effect */
+::-webkit-scrollbar-thumb:hover {
+    background: #38bdf8;
+}
