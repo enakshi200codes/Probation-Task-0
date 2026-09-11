@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina Finance OS - Executive Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div>
+                <div class="sidebar-header">
+                    <div class="brand-box">
+                        <div class="brand-icon">
+                            <i class="fa-solid fa-diamond"></i>
+                        </div>
+                        <div>
+                            <div class="brand-title">Lumina</div>
+                            <div class="brand-subtitle">FINANCE OS</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-nav">
+                    <div class="nav-section-title">
+                        WORKSPACE
+                    </div>
+                    <ul class="nav-list">
+                        <li class="nav-item active">
+                            <a href="#"><i class="fa fa-shapes"></i> <span>Overview</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#"><i class="fa fa-chart-line"></i> <span>Analytics & Budgets</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#"><i class="fa fa-usd" aria-hidden="true"></i> <span>Transactions</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#"><i class="fa fa-gear"></i> <span>Settings</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sidebar-footer">
+                <div class="status-badge-card">
+                    <div class="status-indicator">
+                        <span class="pulse-dot"></span>
+                        <div>
+                            <div style="font-size: 10px; color: var(--text-dim); font-weight: 700;">SYSTEM STATUS</div>
+                            <div style="color: #e2e8f0; font-weight: 600">Sync Active</div>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-shield-halved" style="color: var(--secondary);"></i>
+                </div>
+            </div>
+        </aside>
+        <main id="main-content">
+            <header id="top-header">
+                <div class="header-title-box">
+                    <div class="header-breadcrumb">
+                        <span>EXECUTIVE PORTFOLIO</span>
+                        <span>•</span>
+                        <span class="live-badge">Real-time</span>
+                    </div>
+                    <h2>Liquidity & Asset Ledger</h2>
+                </div>
+                <div class="header-controls">
+                    <div class="date-display-badge">
+                        <i class="fa-regular fa-calendar" style="color: var(--primary);"></i>
+                        <span id="header-date">THU, OCT 24 • 09:42 EST</span>
+                    </div>
+                    <div class="search-input-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="global-search" placeholder="Search transactions..." oninput="handleGlobalSearch(this.value)">
+                    </div>
+                      <button class="btn btn-secondary" onclick="resetSampleData()">
+                          <i class="fa-solid fa-rotate-right"></i> Reset
+                      </button>
+                      <button class="btn btn-secondary" onclick="exportToCSV()">
+                          <i class="fa-solid fa-download"></i> Export CSV
+                      </button>
+
+                      <button class="btn btn-primary" onclick="openModal()">
+                          <i class="fa-solid fa-plus"></i> Record Entry
+                      </button>
+
+                      <div class="user-avatar-wrap">
+                          <img src="profile.png" alt="Avatar" class="avatar-img">
+                      </div>
+                    </div>
+                </header>
+                <div class="dashboard-body">
+                  <div class="kpi-grid">
+                    <div class="glass-card">
+                      <div>
+                        <div class="kpi-header">
+                            <span class="kpi-title"><i class="fa-solid fa-wallet" style="color: var(--primary);"></i> NET POSITION</span>
+                            <span class="trend-badge positive"><i class="fa-solid fa-arrow-trend-up"></i> +12.4%</span>
+                        </div>
+                        <div class="kpi-value" id="kpi-net-position">$14,486.00</div>
+                          <div class="kpi-subtitle">Aggregated checking, vaults & brokerage</div>
+                        </div>
+                        <div class="kpi-footer-row">
+                          <span class="kpi-pill-tag" style="background: rgba(99, 102, 241, 0.15); color: #a5b4fc;">LUMINA-SYNC-OK</span>
+                          <svg width="90" height="20" viewBox="0 0 100 25" fill="none" stroke="#6366F1" stroke-width="2">
+                            <path d="M0 20 L20 18 L40 22 L60 10 L80 14 L100 4" stroke-linecap="round"/>
+                          </svg>
+                        </div>
+                    </div>
+                    <div class="glass-card">
+                        <div>
+                        <div class="kpi-header">
+                            <span class="kpi-title"><i class="fa-solid fa-circle-arrow-down" style="color: var(--secondary);"></i> MONTHLY INFLOW</span>
+                            <span class="trend-badge positive"><i class="fa-solid fa-arrow-trend-up"></i> +8.2%</span>
+                        </div>
+                        <div class="kpi-value" style="color: var(--secondary);" id="kpi-inflow">+$24,200.00</div>
+                        <div class="kpi-subtitle">Verified salary, dividends & client fees</div>
+                        </div>
+            <div class="kpi-footer-row">
+              <span class="kpi-pill-tag" style="background: rgba(16, 185, 129, 0.15); color: #6ee7b7;">4 Active streams</span>
+              <svg width="90" height="20" viewBox="0 0 100 25" fill="none" stroke="#10B981" stroke-width="2">
+                <path d="M0 22 L25 19 L50 15 L75 18 L100 5" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="glass-card">
+            <div>
+              <div class="kpi-header">
+                <span class="kpi-title"><i class="fa-solid fa-circle-arrow-up" style="color: var(--tertiary);"></i> MONTHLY OUTFLOW</span>
+                <span class="trend-badge negative"><i class="fa-solid fa-arrow-trend-down"></i> -1.1%</span>
+              </div>
+              <div class="kpi-value" style="color: var(--tertiary);" id="kpi-outflow">-$9,714.00</div>
+              <div class="kpi-subtitle">Discretionary & structural overhead</div>
+            </div>
+            <div class="kpi-footer-row">
+              <span class="kpi-pill-tag" style="background: rgba(244, 63, 94, 0.15); color: #fda4af;">Burn pace optimal</span>
+              <svg width="90" height="20" viewBox="0 0 100 25" fill="none" stroke="#F43F5E" stroke-width="2">
+                <path d="M0 8 L25 12 L50 10 L75 20 L100 16" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="glass-card">
+            <div>
+              <div class="kpi-header">
+                <span class="kpi-title"><i class="fa-solid fa-bolt" style="color: var(--amber);"></i> SAVINGS VELOCITY</span>
+                <span style="font-size: 12px; font-weight:700; font-family: var(--font-mono);">59.9% <span style="color: var(--text-dim); font-weight:400;">Rate</span></span>
+              </div>
+              <div class="kpi-value" id="kpi-surplus">$14,486.00</div>
+              <div class="kpi-subtitle">Net surplus channeled to wealth vaults</div>
+            </div>
+            <div>
+              <div class="progress-bar-track">
+                <div class="progress-bar-fill" id="velocity-fill" style="width: 60%;"></div>
+              </div>
+              <div style="display:flex; justify-content:space-between; font-size:10px; font-family:var(--font-mono); color:var(--text-dim); margin-top:6px;">
+                <span>Floor: 20%</span>
+                <span>Target: 60%</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="charts-grid">
+          <div class="glass-card chart-panel-6">
+            <div class="chart-card-header">
+              <div>
+                <h3>Category Expenditure Weight</h3>
+                <p>Proportional burn distribution across active tags</p>
+              </div>
+              <span style="font-size: 11px; font-family: var(--font-mono); color: var(--text-muted); background: var(--bg-color); padding: 4px 8px; border-radius: var(--radius-sm); border: 1px solid var(--border-color);">
+                Period: Current Cycle
+              </span>
+            </div>
+
+            <div class="doughnut-container-grid">
+              <div class="doughnut-relative">
+                <canvas id="categoryDoughnutChart" style="max-width:180px; max-height:180px;"></canvas>
+                <div class="doughnut-center-text">
+                  <span style="font-size: 9px; font-family: var(--font-mono); color: var(--text-dim); letter-spacing: 1px;">TOP TAG</span>
+                  <span id="top-tag-name" style="font-size: 14px; font-weight: 800; color: #fff;">Housing</span>
+                </div>
+              </div>
+
+              <div class="legend-list" id="category-legend-box">
+              </div>
+            </div>
+
+            <div style="padding-top: 12px; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; font-size: 11px; font-family: var(--font-mono); color: var(--text-muted);">
+              <span><i class="fa-solid fa-circle-check" style="color: var(--secondary);"></i> Auto-budget safeguards active</span>
+              <span style="color: var(--text-dim);">Target Deviation &lt; 4%</span>
+            </div>
+          </div>
+          <div class="glass-card chart-panel-6">
+            <div class="chart-card-header">
+              <div>
+                <h3>Cash Flow Delta</h3>
+                <p>Inflow vs. Outflow 4-Month Horizon</p>
+              </div>
+              <div style="display: flex; gap: 12px; font-size: 11px; font-family: var(--font-mono);">
+                <span style="display:flex; align-items:center; gap:4px;"><span style="width:8px; height:8px; border-radius:50%; background-color: var(--secondary);"></span> In</span>
+                <span style="display:flex; align-items:center; gap:4px;"><span style="width:8px; height:8px; border-radius:50%; background-color: var(--tertiary);"></span> Out</span>
+              </div>
+            </div>
+
+            <div style="height: 190px; width: 100%;">
+              <canvas id="cashFlowBarChart"></canvas>
+            </div>
+
+            <div style="padding-top: 12px; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; font-size: 11px; font-family: var(--font-mono); color: var(--text-muted);">
+              <span>Net Quarterly Expansion: <strong style="color: #fff;">+$36,850</strong></span>
+              <span style="color: var(--secondary); font-weight: 700;">+24.8% YoY</span>
+            </div>
+          </div>
+
+        </div>
+        <div class="table-container">
+        
+          <div class="table-toolbar">
+            <div class="search-input-box" style="width: 280px;">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" id="table-search" placeholder="Filter merchant, memo, counterparty..." oninput="filterTransactions()">
+            </div>
+
+            <div class="filter-controls-group">
+              <div class="type-tab-group">
+                <button class="tab-btn active" id="type-all" onclick="setTypeFilter('all')">All</button>
+                <button class="tab-btn" id="type-income" onclick="setTypeFilter('income')">Income</button>
+                <button class="tab-btn" id="type-expense" onclick="setTypeFilter('expense')">Expense</button>
+              </div>
+
+              <select id="category-filter" class="custom-select" onchange="filterTransactions()">
+                <option value="ALL">All Categories</option>
+                <option value="Salary & Retainer">Salary & Retainer</option>
+                <option value="Housing & Bills">Housing & Bills</option>
+                <option value="Investments">Investments</option>
+                <option value="Healthcare">Healthcare</option>
+                <option value="Food & Dining">Food & Dining</option>
+                <option value="Freelance & Advisory">Freelance & Advisory</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Travel & Transport">Travel & Transport</option>
+                <option value="Entertainment">Entertainment</option>
+              </select>
+
+              <select id="sort-order" class="custom-select" onchange="filterTransactions()">
+                <option value="newest">Date (Newest first)</option>
+                <option value="oldest">Date (Oldest first)</option>
+                <option value="highest">Magnitude (High to Low)</option>
+                <option value="lowest">Magnitude (Low to High)</option>
+              </select>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>COUNTERPARTY / MEMO</th>
+                  <th>CATEGORY</th>
+                  <th>TIMESTAMP</th>
+                  <th style="text-align: right;">MAGNITUDE</th>
+                  <th style="text-align: center;">ACTIONS</th>
+                </tr>
+              </thead>
+              <tbody id="transactions-tbody">
+              </tbody>
+            </table>
+          </div>
+
+          <div class="table-footer">
+            <span id="entries-count-text">Showing 9 of 9 entries</span>
+            <span style="display:flex; align-items:center; gap:6px;">
+              <i class="fa-solid fa-lock" style="color: var(--text-dim);"></i> Ledger Encrypted & Synchronized
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+  </div>
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Record New Transaction</h3>
+        <button class="action-btn" onclick="closeModal()"><i class="fa-solid fa-xmark" style="font-size:16px;"></i></button>
+      </div>
+
+      <form id="tx-form" onsubmit="handleFormSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Counterparty / Description</label>
+          <input type="text" id="form-name" class="form-input" placeholder="e.g. SpaceX Dividend, AWS Subscription" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Type</label>
+            <select id="form-type" class="form-select" onchange="updateModalCategories()">
+              <option value="income">Income (+)</option>
+              <option value="expense" selected>Expense (-)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Amount ($ USD)</label>
+            <input type="number" step="0.01" min="0.01" id="form-amount" class="form-input font-mono" placeholder="0.00" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Category</label>
+            <select id="form-category" class="form-select">
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Date</label>
+            <input type="date" id="form-date" class="form-input font-mono" required>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Post Ledger Entry</button>
+        </div>
+      </form>
+    </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
